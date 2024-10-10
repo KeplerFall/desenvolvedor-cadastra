@@ -1,1 +1,569 @@
 @import "reset";
+@import "_variables";
+
+body{
+    font-family: $open-sans;
+    min-height: 101vh;
+    position: relative;
+}
+
+#minicartContainer{
+    cursor: pointer;
+    div{
+        height: 15px;
+        width: 15px;
+        border-radius: 100%;
+        background-color: $orage-color;
+        margin-top: -10px;
+        margin-left: 10px;
+        z-index: 5;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        font-weight: 700;
+        color: white;
+    }
+}
+
+.minicartTitle{
+    font-size: 22px;
+    padding: 15px;
+}
+
+.minicartItems{
+    padding: 0 15px;
+}
+
+.minicartPriceContainer{
+    padding: 15px;
+}
+
+.minicartItemContainer{
+    display: flex;
+    img{
+        max-width: 60px;
+    }
+}
+
+.checkoutButton{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    background-color: #FB953E;
+    border: 1px solid #FB953E;
+    color: white;
+}
+
+.closeMinicart{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border: 1px solid #666666;
+    color: #666666;
+}
+
+.minicartController{
+    display: flex;
+    padding: 15px;
+    gap: 15px;
+}
+
+.minicartShelfContainer{
+    position: fixed;
+    top: 0;
+    left: 100%;
+    height: 100vh;
+    width: 100%;
+    transition-duration: 0.2s;
+    background: rgb(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 10;
+
+    &.active{
+        left: 0;
+    }
+
+    .minicartProducts{
+        width: 25%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @media screen and (max-width: 1280px) {
+            width: 100%;
+        }
+    }
+}
+
+.hideMoreColor{
+    display: none !important;
+    @media screen and(max-width: 1280px) {
+        display: flex !important;
+    }
+}
+#filters{
+    @media screen and (max-width: 1280px) {
+        position: fixed;
+        left: 100%;
+        height: fit-content;
+        top: 0;
+        background: white;
+        width: 100vw;
+        height: 100vh;
+        transition: 0.3s;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &.show{
+            left: 0;
+        }
+
+        .innerFilterContainer{
+            padding: 15px;
+        }
+    }
+}
+
+.filterMobileButtons{
+    display: none;
+    @media screen and (max-width: 1280px) {
+        display: flex;
+        display: flex;
+        padding: 15px;
+        gap: 15px;
+    }
+}
+
+#applyFilter, #clearFilter{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+#clearFilter{
+    border: 1px solid $light-gray-color;
+    color: $light-gray-color;
+}
+#applyFilter{
+    background-color: $orage-color;
+    border: 1px solid $orage-color;
+    color: white;
+}
+
+.filterController{
+    display: none;
+    @media screen and (max-width:1280px) {
+        display: flex;
+        justify-content: space-between;
+        font-size: $font-size-xl;
+    }
+}
+
+#loadMore{
+    height: 35px;
+    width: fit-content;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: white;
+    background: $orage-color;
+    margin: 30px auto;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+header{
+    border-bottom: 2px solid $lighter-gray-color;
+    margin-bottom: 15px;
+
+    @media screen and (max-width: 1280px) {
+        padding: 0 15px;
+    }
+
+    &>div{
+        display: flex;
+        max-width: 1280px;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+
+        &>img{
+            max-height: 25px;
+            width: auto;
+        }
+    }
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    font-size: $font-size-md;
+    height: 33px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+}
+
+.mobileButtons{
+    display: none;
+    @media screen and (max-width: 1280px) {
+        display: flex;
+        width: 350px;
+        margin: auto;
+        margin-bottom: 50px;
+
+        div{
+            width: 50%;
+            height: 50px;
+            border: 1px solid $light-gray-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.pageTitle{
+    font-size: $font-enormous;
+    color: $dark-gray-color;
+    @media screen and (max-width: 1280px) {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.productSearchMainSection{
+    display: flex;
+    max-width: 1280px;
+    margin: auto;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.orderByContainer{
+    display: flex;
+    max-width: 1280px;
+    margin: auto;
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.filterTitle{
+    font-size: $font-size-base;
+    color: $dark-gray-color;
+    text-transform: uppercase;
+    margin: 20px 0;
+
+    img{
+        display: none;
+    }
+    
+    @media screen and(max-width: 1280px) {
+        font-size: $font-size-xl;
+        color: $light-gray-color;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        img{
+            display: block;
+        }
+        .arrow{
+            display: block;
+            height: 15px;
+            width: 20px;
+        }
+
+        + div{
+            display: none;
+        }
+    
+        &.show + div{
+            display: flex;
+        }
+    
+        &.show{
+            img{
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.orderByText{
+    @media screen and (max-width: 1280px) {
+        display: none;
+    }
+}
+
+.orderByController{
+    display: none;
+}
+
+.orderBy{
+    height: 36px;
+    width: 128px;
+    border: 1px solid black;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    z-index: 5;
+
+     .options{
+        display: none;
+    }
+
+    @media screen and (max-width: 1280px) {
+        position: fixed;
+        top: 0;
+        right: 100%;
+        height: 100vh;
+        width: 100vw;
+        background-color: white;
+        transition: 0.2s;
+        
+        &.show{
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .options{
+            padding: 15px;
+            gap: 25px;
+            p{
+                font-size: $font-size-xl;
+            }
+        }
+    }
+
+
+
+    @media screen and (min-width: 1280px) {
+        &:hover .options{
+            width: 128px;
+            position: absolute; 
+            display: flex;
+            top: 100%;
+            flex-direction: column;
+            border: 1px solid black;
+            &> p{
+               height: 36px;
+               display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: $open-sans;
+                font-size: $font-size-base;
+                background-color: white;
+               &:hover{
+                background-color: $orage-color;
+                color: white;
+               } 
+            }
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+        .options{
+            position: static;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.orderByController{
+   @media screen and (max-width: 1280px) {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        border-bottom: 2px solid #c7c7c7;
+        font-size: 28px;
+        color: $light-gray-color;
+        p{
+            padding: 20px 15px;
+        }
+   }
+}
+
+#products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 25px;
+    width: 976px;
+    margin-bottom: 30px;
+
+    @media screen and (max-width: 1280px) {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100vw;
+    }
+
+    &>div{
+        width: fit-content;
+        margin: auto;
+
+        img{
+            @media screen and (max-width: 1280px) {
+                max-width: 160px;
+            }
+        }
+    }
+
+    
+
+
+
+    .productInstallment{
+        font-family: $open-sans;
+        font-size: $font-size-base;
+        color: $light-gray-color;
+        text-align: center;
+        line-height: 22px;
+    }
+
+    button{
+        height: 33px;
+        width: 100%;
+        background: black;
+        color: white;
+        font-weight: 700;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
+.productName{
+    font-family: $open-sans;
+    font-size: $font-size-md;
+    text-transform: uppercase;
+    color: $black-color;
+    text-align: center;
+    margin: 8px 0;
+}
+.productPrice{
+    font-size: $font-size-base;
+    font-weight: 700;
+    font-family: $open-sans;
+    text-align: center;
+    margin: 8px 0;
+}
+
+.minicartItemContainer{
+    .productPrice{
+        text-align: left;
+    }
+}
+
+.filterColors{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    .colorContainer{
+        display: flex;
+        gap: 15px;
+    }
+
+    input{
+        display: none;
+    }
+    input[type="checkbox"] + div{
+        height: 16px;
+        width: 16px;
+        border: 1px solid $gray-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type="checkbox"]:checked + div{
+        div{
+            background-color: $orage-color;
+            width: 80%;
+            height: 80%;
+        }
+    }
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    @media screen and (max-width:1280px) {
+        max-width: 50%;
+    }
+
+    input[type="checkbox"]{
+        display: none;
+    }
+    
+    label{
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: 1px solid $gray-color;
+        color: $gray-color;
+        font-family: $open-sans;
+    }
+
+    input[type="checkbox"]:checked + label{
+        border: 1px solid $orage-color;
+        color: $black-color;
+    }
+}
+
+.filterPrices{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.showAllColors{
+    text-decoration: underline;
+    color: $light-gray-color;
+    text-decoration-color: $light-gray-color;
+    cursor: pointer;
+
+    @media screen and (max-width: 1280px) {
+        display: none;
+    }
+}
+
+.hidden{
+    display: none !important;
+}
+
+.removeFromMinicart{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
