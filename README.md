@@ -16,4 +16,7 @@ Github: [KeplerFall](https://github.com/KeplerFall)
 Foi muito divertido estruturar um projeto somente em HTML, CSS e Js, por estar acostumado com os blocos da vtex e componentes em react, fazia bastante tempo que não fazia nada em vanilla.
 
 ## Informações adicionais
+
 Ao iniciar o projeto, reparei que há um 'n' no arquivo `package.json`, na segunda linha, antes da versão. Seria interessante corrigir esse ponto no projeto base.
+
+Não encontrei o layout do minicart, então, improvisei um que siga o padrão do layout.
